@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>wpocket</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">Pocket summary</p>
+          <h1>wpocket</h1>
+        </div>
+      </header>
+
+      <main class="dashboard">
+        <section class="summary-grid" aria-label="Financial summary">
+          <article class="card income">
+            <span>Income</span>
+            <strong id="incomeTotal">¥0</strong>
+          </article>
+          <article class="card expense">
+            <span>Expenses</span>
+            <strong id="expenseTotal">¥0</strong>
+          </article>
+          <article class="card balance">
+            <span>Balance</span>
+            <strong id="balanceTotal">¥0</strong>
+          </article>
+        </section>
+
+        <section class="card form-card">
+          <h2>Add entry</h2>
+          <form id="entryForm">
+            <div class="field-row">
+              <label>
+                <span>Type</span>
+                <select id="type" name="type">
+                  <option value="expense">Expense</option>
+                  <option value="income">Income</option>
+                </select>
+              </label>
+
+              <label>
+                <span>Amount</span>
+                <input id="amount" name="amount" type="number" min="0" step="100" placeholder="5000" required />
+              </label>
+            </div>
+
+            <div class="field-row">
+              <label>
+                <span>Category</span>
+                <input id="category" name="category" type="text" placeholder="Groceries" required />
+              </label>
+
+              <label>
+                <span>Date</span>
+                <input id="date" name="date" type="date" required />
+              </label>
+            </div>
+
+            <div class="field-row single">
+              <label>
+                <span>Note</span>
+                <input id="note" name="note" type="text" maxlength="80" placeholder="Optional note" />
+              </label>
+            </div>
+
+            <button type="submit">Save entry</button>
+          </form>
+        </section>
+
+        <section class="card list-card">
+          <div class="list-header">
+            <h2>Recent entries</h2>
+            <button id="clearEntries" class="ghost" type="button">Clear all</button>
+          </div>
+          <ul id="entriesList" class="entries-list" aria-live="polite"></ul>
+        </section>
+      </main>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
